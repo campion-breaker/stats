@@ -1,2 +1,3 @@
-# stats
-The React frontend for interacting with Campion in a browser.
+# Campion React Frontend
+
+This is the React frontend for Campion, a middleware circuit-breaker.
