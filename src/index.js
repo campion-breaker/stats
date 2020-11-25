@@ -6,7 +6,7 @@ import reportWebVitals from './reportWebVitals';
 import { Provider } from 'react-redux';
 import { fetchEvents } from './components/events/EventsSlice';
 import { fetchTraffic } from './components/traffic/TrafficSlice';
-import { fetchConfigurations } from './components/configurations/ConfigurationsSlice';
+import { fetchConfigurations } from './components/configs/ConfigurationsSlice';
 import store from './store';
 
 store.dispatch(fetchEvents());

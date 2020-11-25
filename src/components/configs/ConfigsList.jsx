@@ -1,10 +1,10 @@
 import { useEffect } from 'react';
-import { fetchConfigurations } from '../configurations/ConfigurationsSlice';
+import { fetchConfigurations } from '../configs/ConfigurationsSlice';
 import { useDispatch, useSelector } from 'react-redux';
-import Endpoints from './Endpoints';
+import Configs from './Configs';
 import Loader from '../loader/Loader';
 
-export default function EndpointsList() {
+export default function ConfigsList() {
   const dispatch = useDispatch();
   const configurationsStatus = useSelector((state) => state.configurations.status);
   const configurations = useSelector((state) => {
@@ -24,7 +24,7 @@ export default function EndpointsList() {
           Services Protected by Campion
         </h2>
 
-        <Endpoints items={configurations} />
+        <Configs items={configurations} />
       </div>
     );
   } else {

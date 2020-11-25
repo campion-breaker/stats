@@ -1,4 +1,4 @@
-export default function Endpoint({ items }) {
+export default function Configs({ items }) {
   const backgroundColors = [
     "bg-pink-600",
     "bg-purple-600",
