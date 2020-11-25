@@ -2,6 +2,7 @@ import moment from "moment";
 import { useEffect } from "react";
 import { fetchTraffic, selectAllTraffic } from "./TrafficSlice";
 import { useDispatch, useSelector } from "react-redux";
+import Loader from "../loader/Loader";
 
 export default function TrafficList() {
   const dispatch = useDispatch();
@@ -102,6 +103,6 @@ export default function TrafficList() {
       </div>
     );
   } else {
-    return null;
+    return <Loader />;
   }
 }
