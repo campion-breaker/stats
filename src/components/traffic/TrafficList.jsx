@@ -4,10 +4,12 @@ import { fetchTraffic, selectAllTraffic } from "./TrafficSlice";
 import { useDispatch, useSelector } from "react-redux";
 import Loader from "../loader/Loader";
 
-export default function TrafficList() {
+export default function TrafficList({ endpointId }) {
   const dispatch = useDispatch();
   const trafficStatus = useSelector((state) => state.traffic.status);
-  const traffic = useSelector(selectAllTraffic);
+  const traffic = endpointId
+    ? useSelector((state) => state.traffic.endpoints[endpointId])
+    : useSelector(selectAllTraffic);
 
   useEffect(() => {
     if (trafficStatus === "idle") {
@@ -15,7 +17,7 @@ export default function TrafficList() {
     }
   }, [trafficStatus, dispatch]);
 
-  if (trafficStatus === 'done') {
+  if (trafficStatus === "done") {
     const totalRequests = traffic.filter(
       (item) => moment().diff(moment(item.TIME), "hours") < 24
     ).length;
@@ -25,14 +27,16 @@ export default function TrafficList() {
     const percentSuccess = Math.round(
       (totalSuccessRequests / totalRequests) * 100
     );
-    const averageTime = (Math.round(
-      traffic.reduce((total, item) => {
-        if (item.LATENCY) {
-          return total + item.LATENCY;
-        } else {
-          return total;
-        }
-      }, 0) / totalSuccessRequests)) || 0;
+    const averageTime =
+      Math.round(
+        traffic.reduce((total, item) => {
+          if (item.LATENCY) {
+            return total + item.LATENCY;
+          } else {
+            return total;
+          }
+        }, 0) / totalSuccessRequests
+      ) || 0;
 
     return (
       <div>
