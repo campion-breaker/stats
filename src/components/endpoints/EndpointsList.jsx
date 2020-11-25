@@ -18,7 +18,6 @@ export default function EndpointsList() {
   }, [configurationsStatus, dispatch]);
 
   if (configurationsStatus === 'done') {
-    console.log(configurations)
     return (
       <div>
         <h2 className="text-gray-500 text-xs font-medium uppercase tracking-wide">
