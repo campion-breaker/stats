@@ -1,8 +1,8 @@
 import { useEffect } from 'react';
-import { fetchConfigurations } from '../configurations/configurationsSlice';
+import { fetchConfigurations } from '../configurations/ConfigurationsSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import Endpoints from './Endpoints';
-import Loader from '../loader/loader';
+import Loader from '../loader/Loader';
 
 export default function EndpointsList() {
   const dispatch = useDispatch();
