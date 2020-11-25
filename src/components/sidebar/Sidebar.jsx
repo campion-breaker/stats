@@ -1,4 +1,3 @@
-import React from "react";
 import { useLocation, Link } from 'react-router-dom';
 import logo from "../../assets/logo-campion.png";
 
@@ -8,7 +7,7 @@ export default function Sidebar() {
   const inactive = "group flex items-center px-2 py-2 text-base font-medium rounded-md text-gray-300 hover:text-white hover:bg-gray-700";
 
   return (
-    <React.Fragment>
+    <>
       <div className="hidden md:flex md:flex-shrink-0">
         <div className="flex flex-col w-64">
           <div className="flex flex-col h-0 flex-1 bg-gray-800">
@@ -101,6 +100,6 @@ export default function Sidebar() {
           </div>
         </div>
       </div>
-    </React.Fragment>
+    </>
   );
 }
