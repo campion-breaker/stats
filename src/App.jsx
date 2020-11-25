@@ -1,13 +1,7 @@
 import Dashboard from "./components/dashboard/Dashboard";
 import Sidebar from "./components/sidebar/Sidebar";
 
-import
-  {
-    BrowserRouter as Router,
-    Switch,
-    Route,
-    Redirect
-  } from 'react-router-dom'
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 const App = () => {
   return (
@@ -16,7 +10,6 @@ const App = () => {
         <Sidebar />
         <Switch>
           <Route exact path="/" component={Dashboard} />
-
         </Switch>
       </div>
     </Router>
