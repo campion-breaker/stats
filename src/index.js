@@ -1,13 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import "./assets/main.css"
+import './assets/main.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { Provider } from 'react-redux';
-import { fetchEvents } from './components/EventsSlice';
+import { fetchEvents } from './components/events/EventsSlice';
+import { fetchTraffic } from './components/traffic/TrafficSlice';
+import { fetchConfigurations } from './components/configurations/configurationsSlice';
 import store from './store';
 
 store.dispatch(fetchEvents());
+store.dispatch(fetchTraffic());
+store.dispatch(fetchConfigurations());
 
 ReactDOM.render(
   <React.StrictMode>
