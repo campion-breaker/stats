@@ -1,22 +1,9 @@
 import moment from "moment";
-import { useEffect } from "react";
-import { fetchEvents, selectAllEvents } from "./EventsSlice";
-import { useDispatch, useSelector } from "react-redux";
 
-export default function Events() {
-  const dispatch = useDispatch();
-  const eventStatus = useSelector((state) => state.events.status);
-  const events = useSelector(selectAllEvents);
-
-  useEffect(() => {
-    if (eventStatus === "idle") {
-      dispatch(fetchEvents());
-    }
-  }, [eventStatus, dispatch]);
-
+export default function Events({events, status}) {
   let tableRow;
 
-  if (eventStatus === "done") {
+  if (status === "done") {
     tableRow = events.map((event) => {
       return (
         <tr key={event.TIME}>

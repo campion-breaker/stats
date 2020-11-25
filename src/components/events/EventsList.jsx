@@ -1,7 +1,22 @@
 import React from "react";
 import Events from "./Events";
+import { useEffect } from "react";
+import { fetchEvents, selectAllEvents } from "./EventsSlice";
+import { useDispatch, useSelector } from "react-redux";
 
-export default function EventsList() {
+export default function EventsList({ endpointId }) {
+  const dispatch = useDispatch();
+  const eventStatus = useSelector((state) => state.events.status);
+  const events = endpointId
+    ? useSelector((state) => state.events.endpoints[endpointId])
+    : useSelector(selectAllEvents);
+
+  useEffect(() => {
+    if (eventStatus === "idle") {
+      dispatch(fetchEvents());
+    }
+  }, [eventStatus, dispatch]);
+
   return (
     <div className="flex flex-col">
       <div className="-my-2 sm:-mx-6 lg:-mx-8">
@@ -36,7 +51,7 @@ export default function EventsList() {
                   </th>
                 </tr>
               </thead>
-              <Events />
+              <Events events={events} status={eventStatus} />
             </table>
           </div>
         </div>

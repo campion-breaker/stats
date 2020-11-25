@@ -3,6 +3,7 @@ import Sidebar from "./components/sidebar/Sidebar";
 import ConfigsPage from "./components/configs/ConfigsPage";
 import EventsPage from "./components/events/EventsPage";
 import TrafficPage from "./components/traffic/TrafficPage";
+import EndpointPage from "./components/endpoints/EndpointPage";
 
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
@@ -20,6 +21,7 @@ const App = () => {
             <Route exact path="/configurations" component={ConfigsPage} />
             <Route exact path="/events" component={EventsPage} />
             <Route exact path="/statistics" component={TrafficPage} />
+            <Route exact path="/endpoints" component={EndpointPage} />
           </Switch>
         </main>
       </div>

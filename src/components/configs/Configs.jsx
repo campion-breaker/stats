@@ -33,7 +33,7 @@ export default function Configs({ items }) {
     }
 
     return (
-      <Link to={`/endpoints/${endpoint.ID}`}>
+      <Link to={`/endpoints/?id=${endpoint.ID}`}>
         <li className="col-span-1 flex shadow-sm rounded-md">
           <div
             className={
