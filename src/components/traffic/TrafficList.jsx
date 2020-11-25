@@ -25,15 +25,14 @@ export default function TrafficList() {
     const percentSuccess = Math.round(
       (totalSuccessRequests / totalRequests) * 100
     );
-    const averageTime = Math.round(
+    const averageTime = (Math.round(
       traffic.reduce((total, item) => {
         if (item.LATENCY) {
           return total + item.LATENCY;
         } else {
           return total;
         }
-      }, 0) / totalSuccessRequests
-    );
+      }, 0) / totalSuccessRequests)) || 0;
 
     return (
       <div>

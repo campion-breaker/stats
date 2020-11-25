@@ -1,6 +1,8 @@
 import Dashboard from "./components/dashboard/Dashboard";
 import Sidebar from "./components/sidebar/Sidebar";
-import ConfigsList from "./components/configs/ConfigsList";
+import ConfigsPage from "./components/configs/ConfigsPage";
+import EventsPage from "./components/events/EventsPage";
+import TrafficPage from "./components/traffic/TrafficPage";
 
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
@@ -15,23 +17,9 @@ const App = () => {
         >
           <Switch>
             <Route exact path="/" component={Dashboard} />
-
-            <div className="py-6">
-              <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <h1 className="text-2xl font-semibold text-gray-900">
-                  Activity Log
-                </h1>
-              </div>
-              <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
-                <div className="py-4">
-                  <Route
-                    exact
-                    path="/configurations"
-                    component={ConfigsList}
-                  />
-                </div>
-              </div>
-            </div>
+            <Route exact path="/configurations" component={ConfigsPage} />
+            <Route exact path="/events" component={EventsPage} />
+            <Route exact path="/statistics" component={TrafficPage} />
           </Switch>
         </main>
       </div>
