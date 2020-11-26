@@ -80,6 +80,8 @@ export default function EndpointChart({ endpointId }) {
               display: true,
               text: "Requests per Day",
               fontSize: 20,
+              fontStyle: "normal",
+              fontColor: "rgba(17, 24, 39)",
             },
             legend: {
               display: true,
