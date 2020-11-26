@@ -10,4 +10,8 @@ export const userAPI = {
   getAllEndpoints() {
     return fetch('http://localhost:7777/endpoints');
   },
+
+  getSubdomain() {
+    return fetch('http://localhost:7777/subdomain');
+  },
 };
