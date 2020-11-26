@@ -20,12 +20,12 @@ export default function TrafficList({ endpointId }) {
   if (trafficStatus === "done") {
     const totalRequests = traffic.filter(
       (item) => moment().diff(moment(item.TIME), "hours") < 24
-    ).length;
-    const totalSuccessRequests = traffic.filter(
+    );
+    const totalSuccessRequests = totalRequests.filter(
       (item) => item.STATUS >= 200 && item.STATUS <= 299
     ).length;
     const percentSuccess = Math.round(
-      (totalSuccessRequests / totalRequests) * 100
+      (totalSuccessRequests / totalRequests.length) * 100
     );
     const averageTime =
       Math.round(
@@ -53,7 +53,7 @@ export default function TrafficList({ endpointId }) {
                 <div className="flex items-baseline text-2xl font-semibold text-indigo-600">
                   {totalSuccessRequests}
                   <span className="ml-2 text-sm font-medium text-gray-500">
-                    out of {totalRequests}
+                    out of {totalRequests.length}
                   </span>
                 </div>
 
@@ -97,7 +97,7 @@ export default function TrafficList({ endpointId }) {
               </dt>
               <dd className="mt-1 flex justify-between items-baseline md:block lg:flex">
                 <div className="flex items-baseline text-2xl font-semibold text-indigo-600">
-                  {totalRequests - totalSuccessRequests}
+                  {totalRequests.length - totalSuccessRequests}
                 </div>
               </dd>
             </div>
