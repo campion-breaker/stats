@@ -7,7 +7,7 @@ import Loader from "../loader/Loader";
 export default function TrafficList({ endpointId }) {
   const dispatch = useDispatch();
   const trafficStatus = useSelector((state) => state.traffic.status);
-  const traffic = endpointId
+  let traffic = endpointId
     ? useSelector((state) => state.traffic.endpoints[endpointId])
     : useSelector(selectAllTraffic);
 
@@ -18,15 +18,24 @@ export default function TrafficList({ endpointId }) {
   }, [trafficStatus, dispatch]);
 
   if (trafficStatus === "done") {
+    traffic = traffic || [];
+
     const totalRequests = traffic.filter(
       (item) => moment().diff(moment(item.TIME), "hours") < 24
     );
+
     const totalSuccessRequests = totalRequests.filter(
       (item) => item.STATUS >= 200 && item.STATUS <= 299
     ).length;
-    const percentSuccess = Math.round(
+
+    let percentSuccess = Math.round(
       (totalSuccessRequests / totalRequests.length) * 100
     );
+
+    if (String(percentSuccess) === 'NaN') {
+      percentSuccess = 0;
+    }
+
     const averageTime =
       Math.round(
         traffic.reduce((total, item) => {
