@@ -1,8 +1,7 @@
 import moment from "moment";
 import { useEffect } from "react";
 import {
-  fetchConfigurations,
-  selectAllConfigurations,
+  fetchConfigurations
 } from "../configs/ConfigurationsSlice";
 import { useDispatch, useSelector } from "react-redux";
 import Loader from "../loader/Loader";
