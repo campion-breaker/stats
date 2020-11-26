@@ -1,10 +1,11 @@
+import React from "react";
 import TrafficList from "../traffic/TrafficList";
 import ConfigsList from "../configs/ConfigsList";
 import EventsList from "../events/EventsList";
 
 export default function Dashboard() {
   return (
-    <>
+    <React.Fragment>
       <div className="py-6">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h1 className="text-2xl font-semibold text-gray-900">
@@ -39,6 +40,7 @@ export default function Dashboard() {
           </div>
         </div>
       </div>
-    </>
+
+    </React.Fragment>
   );
 }
