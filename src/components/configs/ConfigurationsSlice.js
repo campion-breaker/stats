@@ -24,6 +24,7 @@ const configurationsSlice = createSlice({
   initialState: configurationsAdapter.getInitialState({
     status: 'idle',
     error: null,
+    subdomain: '',
   }),
   reducers: {},
   extraReducers: {
