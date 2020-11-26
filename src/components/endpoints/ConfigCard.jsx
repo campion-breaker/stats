@@ -13,15 +13,15 @@ export default function ConfigCard({ endpointId }) {
     (state) => state.configurations.entities[endpointId]
   );
 
-  function capitalize(str) {
-    return str[0] + str.slice(1).toLowerCase();
-  }
-
   useEffect(() => {
     if (configStatus === "idle") {
       dispatch(fetchConfigurations());
     }
   }, [configStatus, dispatch]);
+
+  function capitalize(str) {
+    return str[0] + str.slice(1).toLowerCase();
+  }
 
   if (configStatus === "done") {
     const state = config.CIRCUIT_STATE;
