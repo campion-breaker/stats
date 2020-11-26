@@ -12,7 +12,7 @@ export default function EndpointChart({ endpointId }) {
   const today = new Date(Date.now()).getDay();
   const dispatch = useDispatch();
   const trafficStatus = useSelector((state) => state.traffic.status);
-  const requests = useSelector((state) => state.traffic.endpoints[endpointId]);
+  let requests = useSelector((state) => state.traffic.endpoints[endpointId]);
 
   useEffect(() => {
     if (trafficStatus === "idle") {
@@ -23,6 +23,7 @@ export default function EndpointChart({ endpointId }) {
   if (trafficStatus === "done") {
     const successesPerDay = [0, 0, 0, 0, 0, 0, 0];
     const failuresPerDay = [0, 0, 0, 0, 0, 0, 0];
+    requests = requests || [];
 
     const successes = requests
       .filter((req) => req.STATUS >= 200 && req.STATUS <= 299)
