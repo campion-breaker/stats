@@ -11,6 +11,10 @@ export default function Configs({ items }) {
     "bg-indigo-600",
   ];
 
+  const capitalize = (str) => {
+    return str[0] + str.slice(1).toLowerCase();
+  }
+
   const endpoints = items.map((endpoint, idx) => {
     const i = idx % items.length;
     const initials = endpoint.NAME.split(" ")
@@ -22,14 +26,14 @@ export default function Configs({ items }) {
     let displayedStateColor;
 
     if (endpoint.CIRCUIT_STATE === "CLOSED") {
-      displayedStateColor = "text-green-500";
+      displayedStateColor = "green-500";
     } else if (
       endpoint.CIRCUIT_STATE === "OPEN" ||
       endpoint.CIRCUIT_STATE === "FORCED-OPEN"
     ) {
-      displayedStateColor = "text-red-500";
+      displayedStateColor = "red-500";
     } else if (endpoint.CIRCUIT_STATE === "HALF-OPEN") {
-      displayedStateColor = "text-yellow-500";
+      displayedStateColor = "yellow-500";
     }
 
     return (
@@ -37,8 +41,8 @@ export default function Configs({ items }) {
         <li className="col-span-1 flex shadow-sm rounded-md">
           <div
             className={
-              "flex-shrink-0 flex items-center justify-center w-16 text-white text-sm font-medium rounded-l-md " +
-              backgroundColors[i]
+              "flex-shrink-0 flex items-center justify-center w-16 text-white text-sm font-medium rounded-l-md bg-" +
+              displayedStateColor
             }
           >
             {initials}
@@ -51,7 +55,7 @@ export default function Configs({ items }) {
               >
                 {endpoint.NAME}
               </a>
-              <p className={displayedStateColor}>{endpoint.CIRCUIT_STATE}</p>
+              <p className={"text-" + displayedStateColor}>{capitalize(endpoint.CIRCUIT_STATE)}</p>
             </div>
             <div className="flex-shrink-0 pr-2">
               <button className="w-8 h-8 bg-white inline-flex items-center justify-center text-gray-400 rounded-full bg-transparent hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
