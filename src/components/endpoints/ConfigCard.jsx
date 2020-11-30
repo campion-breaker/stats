@@ -1,8 +1,6 @@
 import moment from "moment";
 import { useEffect } from "react";
-import {
-  fetchConfigurations
-} from "../configs/ConfigurationsSlice";
+import { fetchConfigurations } from "../configs/ConfigurationsSlice";
 import { useDispatch, useSelector } from "react-redux";
 import Loader from "../loader/Loader";
 
@@ -27,12 +25,12 @@ export default function ConfigCard({ endpointId }) {
     const state = config.CIRCUIT_STATE;
     let pillColor;
 
-    if (state === 'CLOSED') {
-      pillColor = 'bg-green-500';
-    } else if (state === 'OPEN' || state === 'FORCED-OPEN') {
-      pillColor = 'bg-red-500';
-    } else if (state === 'HALF-OPEN') {
-      pillColor = 'bg-yellow-500';
+    if (state === "CLOSED") {
+      pillColor = "bg-green-500";
+    } else if (state === "OPEN" || state === "FORCED-OPEN") {
+      pillColor = "bg-red-500";
+    } else if (state === "HALF-OPEN") {
+      pillColor = "bg-yellow-500";
     }
 
     return (
@@ -49,7 +47,14 @@ export default function ConfigCard({ endpointId }) {
               <div class="sm:col-span-2">
                 <dt class="text-sm font-medium text-gray-500">Current State</dt>
                 <dd class="mt-1 text-m text-gray-900 sm:mt-0 sm:col-span-2">
-                  <div class={"rounded-full h-6 w-1/3 mt-2 py-1 text-center font-semibold text-xs text-white " + pillColor}>{capitalize(state)}</div>
+                  <div
+                    class={
+                      "rounded-full h-6 w-1/3 mt-2 py-1 text-center font-semibold text-xs text-white " +
+                      pillColor
+                    }
+                  >
+                    {capitalize(state)}
+                  </div>
                 </dd>
               </div>
             </div>
@@ -75,27 +80,27 @@ export default function ConfigCard({ endpointId }) {
               <div class="sm:col-span-2">
                 <dt class="text-sm font-medium text-gray-500">Max Latency</dt>
                 <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                {config.MAX_LATENCY} ms
+                  {config.MAX_LATENCY} ms
                 </dd>
               </div>
             </div>
             <div class="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
               <div class="sm:col-span-2">
                 <dt class="text-sm font-medium text-gray-500">
-                Network Failure Threshold
+                  Network Failure Threshold
                 </dt>
                 <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                {config.NETWORK_FAILURE_THRESHOLD}
+                  {config.NETWORK_FAILURE_THRESHOLD}
                 </dd>
               </div>
             </div>
             <div class="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
               <div class="sm:col-span-2">
                 <dt class="text-sm font-medium text-gray-500">
-                Service Failure Threshold
+                  Service Failure Threshold
                 </dt>
                 <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                {config.SERVICE_FAILURE_THRESHOLD}
+                  {config.SERVICE_FAILURE_THRESHOLD}
                 </dd>
               </div>
             </div>

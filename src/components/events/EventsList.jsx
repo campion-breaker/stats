@@ -7,7 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 export default function EventsList({ endpointId }) {
   const dispatch = useDispatch();
   const eventStatus = useSelector((state) => state.events.status);
-  const events = endpointId
+  let events = endpointId
     ? useSelector((state) => state.events.endpoints[endpointId])
     : useSelector(selectAllEvents);
 
