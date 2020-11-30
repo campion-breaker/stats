@@ -32,11 +32,11 @@ export default function TrafficList({ endpointId }) {
       (totalSuccessRequests / totalRequests.length) * 100
     );
 
-    if (String(percentSuccess) === 'NaN') {
+    if (String(percentSuccess) === "NaN") {
       percentSuccess = 0;
     }
 
-    const averageTime =
+    let averageTime =
       Math.round(
         traffic.reduce((total, item) => {
           if (item.LATENCY) {
@@ -46,6 +46,10 @@ export default function TrafficList({ endpointId }) {
           }
         }, 0) / totalSuccessRequests
       ) || 0;
+
+    if (averageTime === Infinity || averageTime === -Infinity) {
+      averageTime = 0;
+    }
 
     return (
       <div>
