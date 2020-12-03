@@ -11,6 +11,8 @@ export default function EventsList({ endpointId }) {
     ? useSelector((state) => state.events.endpoints[endpointId])
     : useSelector(selectAllEvents);
 
+  if (!events) events = [];
+
   useEffect(() => {
     if (eventStatus === "idle") {
       dispatch(fetchEvents());

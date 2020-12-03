@@ -1,6 +1,6 @@
 import moment from "moment";
 
-export default function Events({events, status}) {
+export default function Events({ events, status }) {
   let tableRow;
 
   if (status === "done") {
