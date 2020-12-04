@@ -37,8 +37,8 @@ export default function EndpointHeader({ endpointId }) {
                         Protected
                       </div>
                       <div className="mt-1 text-sm text-gray-600 sm:flex sm:items-center">
-                        <a class="text-indigo-600 hover:text-indigo-500" href={subdomain + '/service?id=' + endpointId}>
-                          {subdomain + '/service?id=' + endpointId} <span aria-hidden="true">&rarr;</span>
+                        <a class="text-indigo-600 hover:text-indigo-500" href={subdomain + endpointId}>
+                          {subdomain + endpointId} <span aria-hidden="true">&rarr;</span>
                         </a>
                       </div>
                     </div>
