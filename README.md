@@ -1,3 +1,3 @@
 # Campion React Frontend
 
-This is the React frontend for Campion, a middleware circuit-breaker.
+This is the React frontend for Campion, an edge-based circuit breaking middleware.
